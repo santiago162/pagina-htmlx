@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111111;
+    color: #ffffff;
+    font-family: "Fira Sans", sans-serif;
+}
+
+
+
+.sidebar {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height:auto;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    z-index: 100;
+    background-color: #ffffff;
+    gap: 20px;
+}
+
+.sidebar-logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111111;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.sidebar-honors {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111111;
+    letter-spacing: 0px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding-bottom: 15px;
+}
+
+
+/* ── HEADER ── */
+header {
+    position: static;
+    width: 100%;
+    padding: 30px 60px;
+}
+
+.site-name {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+
+/* ── BLOG BUTTON ── */
+.blog-btn {
+    position: fixed;
+    top: 20px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 99;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.blog-btn:hover {
+    background-color: white;
+    color: #111111;
+}
+
+.blog-arrow {
+    font-size: 16px;
+}
+
+
+/* ── HERO ── */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+    padding: 40px 30px;
+}
+
+.hero-title {
+    position: absolute;
+    top: 30%;
+    left: 60px;
+    transform: translateY(-50%);
+}
+
+.hero-title h1 {
+    font-size: clamp(60px, 10vw, 130px);
+    font-weight: 600;
+    
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.scroll-indicator {
+    position: absolute;
+    top: 360px;
+    left: 60px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-indicator svg {
+    position: absolute;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.open-to-work {
+    position: absolute;
+    top: 360px;
+    right: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    max-width: 220px;
+}
+
+.otw-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.otw-location {
+    width: 100%;
+    font-size: 13px;
+    color: #aaaaaa;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+
+/* ── PANELS ── */
+.panels {
+    width: 100%;
+}
+
+.panel-title {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 40px 30px;
+}
+
+.panel-title h2 {
+    font-size: clamp(50px, 8vw, 110px);
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: right;
+}
+
+.panel-quote {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 60px 30px;
+}
+
+.panel-quote blockquote {
+    font-size: 12px;
+    font-weight: 300;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    max-height: 200px;
+}
+
+
+/* ── SELECTED WORKS ── */
+.selected-works {
+    width: 100%;
+    padding: 60px 30px;
+}
+
+.works-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.works-star {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.works-label {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.works-list {
+    list-style: none;
+    width: 100%;
+}
+
+.work-item {
+    padding: 30px 0;
+}
+
+.work-item hr {
+    border: none;
+    border-top: 1px solid #333333;
+    margin-bottom: 30px;
+}
+
+.works-list > hr {
+    border: none;
+    border-top: 1px solid #333333;
+}
+
+.work-item a {
+    font-size: clamp(30px, 4vw, 55px);
+    font-weight: 300;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.work-item a:hover {
+    color: #aaaaaa;
+}
+
+
+/* ── FOOTER ── */
+footer {
+    width: 100%;
+    padding: 60px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cta-button {
+    display: inline-block;
+    font-size: clamp(20px, 3vw, 36px);
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    padding: 20px 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffffff;
+    color: #111111;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 300;
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.social-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+    transform: translateX(-10px);  /* ← se mueve a la izquierda */
+}
+
+.social-links a:hover::after {
+    width: 100%;  /* ← aparece la línea */
+}
+
+.hero-indent {
+    display: inline-block;
+    padding-left: clamp(40px, 0vw, 90px);
+}
+
+.spin-img {
+    animation: spin 10s linear infinite reverse;
+}
+
+.spin-img2 {
+    animation: spin 3s linear infinite;
+}

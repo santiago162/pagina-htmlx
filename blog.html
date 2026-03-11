@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/blog.css">
+    <title>Blog — Santiago Caro</title>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="site-name">Santiago Caro</a>
+        <a href="index.html" class="back-btn">← BACK</a>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="blog-hero">
+            <h1 class="blog-title">BLOG</h1>
+            <p class="blog-subtitle">Thoughts on web development, design, animation, and building for the future.</p>
+        </section>
+
+        <!-- SEARCH + FILTERS -->
+        <section class="blog-controls">
+            <div class="search-bar">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search articles..." />
+            </div>
+
+            <div class="filters">
+                <span class="filter-label">FILTER BY TOPIC</span>
+                <div class="tags" id="tagList">
+                    <button class="tag tag-active">ALL POSTS</button>
+                    <button class="tag">3D</button>
+                    <button class="tag">ARCHITECTURE</button>
+                    <button class="tag">BEST PRACTICES</button>
+                    <button class="tag">CSS</button>
+                    <button class="tag">CORE WEB VITALS</button>
+                    <button class="tag">DATABASE</button>
+                    <button class="tag">DESIGN</button>
+                    <button class="tag">DESIGN SYSTEMS</button>
+                    <button class="tag">FULL-STACK</button>
+                    <button class="tag">INNGEST</button>
+                    <button class="tag">NEXT.JS</button>
+                    <button class="tag">OPTIMIZATION</button>
+                    <button class="tag">PERFORMANCE</button>
+                    <button class="tag">PRISMA</button>
+                    <button class="tag">REACT</button>
+                    <button class="tag">SEO</button>
+                    <button class="tag">SERVERLESS</button>
+                    <button class="tag">STORYBOOK</button>
+                    <button class="tag">SUPABASE</button>
+                    <button class="tag">TAILWINDCSS</button>
+                    <button class="tag">THREE.JS</button>
+                    <button class="tag">TYPESCRIPT</button>
+                    <button class="tag">UI/UX</button>
+                    <button class="tag">WEBGL</button>
+                </div>
+                <p class="filter-status" id="filterStatus"></p>
+            </div>
+        </section>
+
+        <!-- POSTS LIST -->
+        <section class="posts-list" id="postsList">
+
+            <article class="post-item featured" data-tags="react performance">
+                <div class="post-badge">FEATURED</div>
+                <div class="post-meta">
+                    <span class="post-date">March 2025</span>
+                    <span class="post-read">8 min read</span>
+                </div>
+                <h2 class="post-title">React 19 Performance: From Zero to Hero</h2>
+                <p class="post-excerpt">Exploring the new concurrent features, automatic batching, and how to squeeze every millisecond out of your React apps.</p>
+                <div class="post-tags">
+                    <span>REACT</span>
+                    <span>PERFORMANCE</span>
+                </div>
+                <a href="#" class="post-link">READ MORE <span>→</span></a>
+            </article>
+
+            <article class="post-item" data-tags="css design ui-ux">
+                <div class="post-meta">
+                    <span class="post-date">February 2025</span>
+                    <span class="post-read">5 min read</span>
+                </div>
+                <h2 class="post-title">CSS Container Queries Are Finally Here</h2>
+                <p class="post-excerpt">Why container queries change everything about how we think about responsive design — and how to use them today.</p>
+                <div class="post-tags">
+                    <span>CSS</span>
+                    <span>DESIGN</span>
+                </div>
+                <a href="#" class="post-link">READ MORE <span>→</span></a>
+            </article>
+
+            <article class="post-item" data-tags="gsap 3d">
+                <div class="post-meta">
+                    <span class="post-date">January 2025</span>
+                    <span class="post-read">10 min read</span>
+                </div>
+                <h2 class="post-title">Building Scroll-Driven Animations with GSAP</h2>
+                <p class="post-excerpt">A deep dive into ScrollTrigger, pinning, scrubbing, and creating those satisfying scroll experiences users love.</p>
+                <div class="post-tags">
+                    <span>GSAP</span>
+                    <span>3D</span>
+                </div>
+                <a href="#" class="post-link">READ MORE <span>→</span></a>
+            </article>
+
+            <article class="post-item" data-tags="seo performance">
+                <div class="post-meta">
+                    <span class="post-date">December 2024</span>
+                    <span class="post-read">6 min read</span>
+                </div>
+                <h2 class="post-title">Core Web Vitals: The Complete 2025 Guide</h2>
+                <p class="post-excerpt">LCP, CLS, INP — everything you need to know to dominate Google rankings and give users a buttery-smooth experience.</p>
+                <div class="post-tags">
+                    <span>SEO</span>
+                    <span>PERFORMANCE</span>
+                </div>
+                <a href="#" class="post-link">READ MORE <span>→</span></a>
+            </article>
+
+            <article class="post-item" data-tags="full-stack architecture next-js">
+                <div class="post-meta">
+                    <span class="post-date">November 2024</span>
+                    <span class="post-read">12 min read</span>
+                </div>
+                <h2 class="post-title">When to Use Next.js App Router vs Pages Router</h2>
+                <p class="post-excerpt">A pragmatic breakdown of both routing systems, when each makes sense, and the migration path if you're stuck in Pages Router.</p>
+                <div class="post-tags">
+                    <span>NEXT.JS</span>
+                    <span>ARCHITECTURE</span>
+                </div>
+                <a href="#" class="post-link">READ MORE <span>→</span></a>
+            </article>
+
+            <article class="post-item" data-tags="typescript best-practices">
+                <div class="post-meta">
+                    <span class="post-date">October 2024</span>
+                    <span class="post-read">7 min read</span>
+                </div>
+                <h2 class="post-title">TypeScript Patterns I Wish I Knew Earlier</h2>
+                <p class="post-excerpt">Discriminated unions, template literal types, and the utility types that will make your codebase dramatically cleaner.</p>
+                <div class="post-tags">
+                    <span>TYPESCRIPT</span>
+                    <span>BEST PRACTICES</span>
+                </div>
+                <a href="#" class="post-link">READ MORE <span>→</span></a>
+            </article>
+
+            <div class="no-results" id="noResults" style="display:none;">
+                <p>No articles found. Try a different search or topic.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+</body>
+</html>
