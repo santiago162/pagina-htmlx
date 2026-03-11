@@ -10,7 +10,7 @@ body {
     font-family: "Fira Sans", sans-serif;
 }
 
-/* ── HEADER ── */
+
 header {
     width: 100%;
     padding: 30px 60px;
@@ -45,7 +45,7 @@ header {
     border-color: #ffffff;
 }
 
-/* ── BLOG HERO ── */
+
 .blog-hero {
     padding: 60px 60px 40px;
 }
@@ -73,7 +73,7 @@ header {
     padding: 0 60px 60px;
 }
 
-/* Search */
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -113,7 +113,7 @@ header {
     color: #555555;
 }
 
-/* Filters */
+
 .filter-label {
     display: block;
     font-size: 11px;
@@ -156,7 +156,7 @@ header {
 
 
 
-/* ── POSTS LIST ── */
+
 .posts-list {
     padding: 0 60px 80px;
     display: flex;
