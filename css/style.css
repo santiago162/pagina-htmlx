@@ -1,39 +1,15 @@
-/* =============================================================================
-   PORTFOLIO — style.css
-   Organización:
-     1. Custom Properties (tokens)
-     2. Reset & Base
-     3. Utilities
-     4. Layout (nav, main, footer)
-     5. Components: Loader, Cursor, Shader canvas, Progress bar, Blog pill
-     6. Sections: Hero, Skills, Projects
-     7. Footer
-     8. Accessibility & reduced-motion
-   ============================================================================= */
-
-
-/* =============================================================================
-   1. CUSTOM PROPERTIES
-   ============================================================================= */
 :root {
-  /* Colors */
   --color-bg:       #111111;
   --color-white:    #f4f4f4;
   --color-muted:    rgba(255, 255, 255, 0.5);
   --color-border:   rgba(255, 255, 255, 0.2);
-
-  /* Typography */
   --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Syne", sans-serif;
   --font-ui:      "Space Grotesk", sans-serif;
   --font-loader:  "Poppins", sans-serif;
   --font-mono:    ui-monospace, monospace;
-
-  /* Spacing (base 30px mobile → 60px desktop) */
   --space-side-mobile:  30px;
   --space-side-desktop: 60px;
-
-  /* Z-index scale */
   --z-shader:   0;
   --z-main:     1;
   --z-projects: 10;
@@ -46,10 +22,6 @@
   --z-cursor:   9996;
 }
 
-
-/* =============================================================================
-   2. RESET & BASE
-   ============================================================================= */
 *,
 *::before,
 *::after {
@@ -89,11 +61,6 @@ img {
 }
 
 
-/* =============================================================================
-   3. UTILITIES
-   ============================================================================= */
-
-/* Screen-reader only — visually hidden but accessible */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -112,10 +79,6 @@ img {
   z-index: var(--z-main);
 }
 
-
-/* =============================================================================
-   4. LAYOUT — HEADER / NAV
-   ============================================================================= */
 .site-nav {
   position: absolute;
   top: 0;
@@ -149,12 +112,6 @@ img {
   .nav-brand { font-size: 40px; }
 }
 
-
-/* =============================================================================
-   5. COMPONENTS
-   ============================================================================= */
-
-/* --- Blog pill (fixed CTA) -------------------------------------------- */
 .blog-pill {
   position: fixed;
   top: 2rem;
@@ -193,10 +150,6 @@ img {
 }
 
 
-
-
-
-/* --- Shader canvas ---------------------------------------------------- */
 #shader-canvas {
   position: fixed;
   top: 0;
@@ -208,8 +161,6 @@ img {
   background: transparent;
 }
 
-
-/* --- Page loader ------------------------------------------------------- */
 .loader {
   position: fixed;
   inset: 0;
@@ -291,8 +242,6 @@ img {
   transform: scaleY(1);
 }
 
-
-/* --- Projects loading overlay ----------------------------------------- */
 .projects-loading {
   position: fixed;
   inset: 0;
@@ -324,8 +273,6 @@ img {
   font-size: 0.875rem;
 }
 
-
-/* --- Custom cursor ---------------------------------------------------- */
 .cursor-trail,
 .cursor-main,
 .cursor-dot {
@@ -366,7 +313,7 @@ img {
   z-index: 10000;
 }
 
-/* Hide cursor elements when custom cursor is inactive */
+
 body:not(.custom-cursor-on) .cursor-trail,
 body:not(.custom-cursor-on) .cursor-main,
 body:not(.custom-cursor-on) .cursor-dot {
@@ -387,12 +334,6 @@ body.custom-cursor-on {
   }
 }
 
-
-/* =============================================================================
-   6. SECTIONS
-   ============================================================================= */
-
-/* --- Hero ------------------------------------------------------------- */
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -419,7 +360,6 @@ body.custom-cursor-on {
   z-index: 2;
 }
 
-/* 3D tilt wrapper */
 .tilt-wrap {
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -462,7 +402,6 @@ body.custom-cursor-on {
   will-change: transform, opacity;
 }
 
-/* Hero bottom bar */
 .hero-bottom {
   position: absolute;
   left: 0;
@@ -481,7 +420,6 @@ body.custom-cursor-on {
   }
 }
 
-/* Scroll ring */
 .scroll-ring-wrap {
   position: relative;
   width: 100px;
@@ -516,7 +454,7 @@ body.custom-cursor-on {
   height: 16px;
 }
 
-/* Open to work badge */
+
 .open-work-wrap {
   display: flex;
   flex-direction: column;
@@ -589,7 +527,7 @@ body.custom-cursor-on {
   animation: spin 3s linear infinite;
 }
 
-/* Awwwards badge */
+
 .awwwards-wrap {
   position: absolute;
   z-index: 90;
@@ -612,7 +550,7 @@ body.custom-cursor-on {
 }
 
 
-/* --- Skills section --------------------------------------------------- */
+
 .skills-section {
   position: relative;
   display: grid;
@@ -627,7 +565,7 @@ body.custom-cursor-on {
   }
 }
 
-/* Gradient skill text — production .text > p */
+
 .text > p.about {
   background: linear-gradient(to right, rgb(255, 255, 255) 50%, rgb(37, 37, 37) 50%);
   background-size: 200% 100%;
@@ -697,7 +635,6 @@ body.custom-cursor-on {
 }
 
 
-/* --- Projects section ------------------------------------------------- */
 .projects-split {
   position: relative;
   z-index: var(--z-projects);
@@ -722,7 +659,6 @@ body.custom-cursor-on {
   }
 }
 
-/* Sticky left column */
 .split-sticky {
   align-self: start;
 }
@@ -772,7 +708,7 @@ body.custom-cursor-on {
   .split-title h2 { font-size: 18px; }
 }
 
-/* Project counter */
+
 .project-counter {
   display: flex;
   align-items: baseline;
@@ -804,7 +740,6 @@ body.custom-cursor-on {
   color: rgba(255, 255, 255, 0.2);
 }
 
-/* Project list */
 .split-list {
   display: flex;
   flex-direction: column;
@@ -905,7 +840,6 @@ body.custom-cursor-on {
   transform: translateX(8px);
 }
 
-/* Preview cards column */
 .split-preview {
   display: flex;
   flex-direction: column;
@@ -941,7 +875,7 @@ body.custom-cursor-on {
   .project-preview-item.dimmed { opacity: 1; }
 }
 
-/* Card visual */
+
 .project-card-visual {
   position: relative;
   display: block;
@@ -1016,7 +950,7 @@ body.custom-cursor-on {
   }
 }
 
-/* Card body */
+
 .project-card-body {
   position: absolute;
   bottom: 0;
@@ -1096,9 +1030,6 @@ body.custom-cursor-on {
 }
 
 
-/* =============================================================================
-   7. FOOTER
-   ============================================================================= */
 .footer-section {
   position: relative;
   z-index: var(--z-footer);
@@ -1191,7 +1122,6 @@ body.custom-cursor-on {
   }
 }
 
-/* Animated underline */
 .link-underline::before {
   content: "";
   position: absolute;
@@ -1208,17 +1138,11 @@ body.custom-cursor-on {
 }
 
 
-/* =============================================================================
-   8. ANIMATIONS (shared keyframes)
-   ============================================================================= */
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
 
 
-/* =============================================================================
-   9. ACCESSIBILITY — REDUCED MOTION
-   ============================================================================= */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

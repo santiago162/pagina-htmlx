@@ -11,7 +11,7 @@
     />
     <meta name="theme-color" content="#111111" />
 
-    <!-- Preconnect for Google Fonts -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,9 +24,7 @@
 
   <body>
 
-    <!-- =============================================
-         PAGE LOADER
-         ============================================= -->
+
     <div id="page-loader" class="loader" aria-hidden="true">
       <div class="loader-glow" aria-hidden="true"></div>
       <div class="loader-pct">
@@ -42,24 +40,14 @@
       </div>
     </div>
 
-    <!-- =============================================
-         PROJECTS LOADING OVERLAY
-         ============================================= -->
+
     <div id="projects-loading" class="projects-loading" aria-live="polite">
       <div>
         <div class="spinner" aria-hidden="true"></div>
         <p>Loading projects…</p>
       </div>
     </div>
-
-    <!-- =============================================
-         SHADER BACKGROUND CANVAS
-         ============================================= -->
     <canvas id="shader-canvas" aria-hidden="true"></canvas>
-
-    <!-- =============================================
-         CUSTOM CURSOR
-         ============================================= -->
     <div class="cursor-trail" style="width:14px; height:14px; z-index:9996; background:rgba(244,244,244,0.15)" aria-hidden="true"></div>
     <div class="cursor-trail" style="width:11.5px; height:11.5px; z-index:9995; background:rgba(244,244,244,0.125)" aria-hidden="true"></div>
     <div class="cursor-trail" style="width:9px; height:9px; z-index:9994; background:rgba(244,244,244,0.1)" aria-hidden="true"></div>
@@ -68,13 +56,7 @@
     <div class="cursor-main" aria-hidden="true">
       <span class="cursor-label"></span>
     </div>
-    <div class="cursor-dot" aria-hidden="true"></div>
-
-    
-
-    <!-- =============================================
-         BLOG PILL (fixed CTA)
-         ============================================= -->
+    <div class="cursor-dot" aria-hidden="true"></div>>
     <a href="blog.html" class="blog-pill" rel="noopener noreferrer">
       <span>Blog</span>
       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,9 +64,7 @@
       </svg>
     </a>
 
-    <!-- =============================================
-         SITE HEADER / NAV
-         ============================================= -->
+
     <header>
       <nav class="site-nav" aria-label="Navigation principale">
         <div data-magnetic="0.3" class="magnetic-btn">
@@ -93,12 +73,9 @@
       </nav>
     </header>
 
-    <!-- =============================================
-         MAIN CONTENT
-         ============================================= -->
+    
     <main class="bg-main">
 
-      <!-- HERO -->
       <section class="hero-section" aria-labelledby="hero-heading">
         <div id="awwwards" class="awwwards-wrap">
           <a
@@ -122,7 +99,7 @@
         <div class="hero-center">
           <div class="tilt-wrap">
             <h1 id="hero-heading" class="text-heading">
-              <!-- Each letter is individually animated by GSAP -->
+              
               <span aria-hidden="true">
                 <span class="heading-char">F</span><span class="heading-char">u</span><span class="heading-char">l</span><span class="heading-char">l</span><span class="heading-char">-</span><span class="heading-char">S</span><span class="heading-char">t</span><span class="heading-char">a</span><span class="heading-char">c</span><span class="heading-char">k</span>
               </span>
@@ -130,14 +107,14 @@
               <span class="developer-indent" aria-hidden="true">
                 <span class="heading-char">d</span><span class="heading-char">e</span><span class="heading-char">v</span><span class="heading-char">e</span><span class="heading-char">l</span><span class="heading-char">o</span><span class="heading-char">p</span><span class="heading-char">e</span><span class="heading-char">r</span>
               </span>
-              <!-- Screen reader-only text for accessibility -->
+              
               <span class="sr-only">Full-Stack developer</span>
             </h1>
           </div>
         </div>
 
         <div class="hero-bottom">
-          <!-- Scroll indicator -->
+          
           <div class="scroll-ring-wrap" aria-label="Défiler vers le bas">
             <svg class="scroll-ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
@@ -157,7 +134,7 @@
             </div>
           </div>
 
-          <!-- Availability badge -->
+          
           <div class="open-work-wrap">
             <div class="open-work-row down">
               <div class="open-work-glow" aria-hidden="true"></div>
@@ -171,9 +148,9 @@
         </div>
       </section>
 
-      <!-- SKILLS -->
+      
       <section class="skills-section" aria-labelledby="skills-heading">
-        <!-- Hidden h2 for screen readers -->
+        
         <h2 id="skills-heading" class="sr-only">Technologies &amp; compétences</h2>
 
         <div class="citation-col" aria-hidden="true">
@@ -194,14 +171,14 @@
         </div>
       </section>
 
-      <!-- Portfolio anchor used by ScrollTrigger -->
+      
       <div id="portfolio-section" aria-hidden="true"></div>
 
-      <!-- SELECTED WORKS -->
+      
       <section class="projects-split selected-projects" aria-labelledby="works-heading">
         <div class="projects-grid">
 
-          <!-- Sticky sidebar: list of projects -->
+          
           <div class="split-sticky">
             <header class="split-title selected-projects-asterisk">
               <img src="icons/asterisk.svg" alt="" width="24" height="24" loading="lazy" aria-hidden="true" />
@@ -320,9 +297,9 @@
                 </div>
               </a>
             </nav>
-          </div><!-- /.split-sticky -->
+          </div>
 
-          <!-- Preview cards -->
+          
           <div class="split-preview">
 
             <article class="project-preview-item project-item" data-preview="0">
@@ -470,11 +447,11 @@
               </a>
             </article>
 
-          </div><!-- /.split-preview -->
-        </div><!-- /.projects-grid -->
+          </div>
+        </div>
       </section>
 
-      <!-- FOOTER -->
+      
       <footer class="footer-section">
         <div data-magnetic="0.4" class="magnetic-btn get-in-touch">
           <a
@@ -544,11 +521,7 @@
         </nav>
       </footer>
 
-    </main><!-- /#bg-main -->
-
-    <!-- =============================================
-         THIRD-PARTY SCRIPTS (deferred, end of body)
-         ============================================= -->
+    </main>
     <script
       data-cfasync="false"
       src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
@@ -559,7 +532,6 @@
     <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <script src="https://unpkg.com/three@0.163.0/build/three.min.js" defer></script>
 
-    <!-- App script — loaded last so all globals above are available -->
     <script src="script.js" defer></script>
 
   </body>
