@@ -1,177 +1,566 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Santiago Caro — Frontend Developer</title>
-</head>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="only light" />
+    <title>Santiago Caro — Développeur Full-Stack React &amp; Next.js | WebGL &amp; Performance</title>
+    <meta
+      name="description"
+      content="Static educational replica of ewan-kerboas.fr — Full-Stack developer portfolio."
+    />
+    <meta name="theme-color" content="#111111" />
 
-<body>
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@200;300;400;500;600;700&family=Poppins:wght@200;300&family=Space+Grotesk:wght@400;500&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+
+    <!-- =============================================
+         PAGE LOADER
+         ============================================= -->
+    <div id="page-loader" class="loader" aria-hidden="true">
+      <div class="loader-glow" aria-hidden="true"></div>
+      <div class="loader-pct">
+        <span class="loader-pct-num">0</span><small>%</small>
+      </div>
+      <p class="loader-label">Loading</p>
+      <div class="loader-columns" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- =============================================
+         PROJECTS LOADING OVERLAY
+         ============================================= -->
+    <div id="projects-loading" class="projects-loading" aria-live="polite">
+      <div>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading projects…</p>
+      </div>
+    </div>
+
+    <!-- =============================================
+         SHADER BACKGROUND CANVAS
+         ============================================= -->
+    <canvas id="shader-canvas" aria-hidden="true"></canvas>
+
+    <!-- =============================================
+         CUSTOM CURSOR
+         ============================================= -->
+    <div class="cursor-trail" style="width:14px; height:14px; z-index:9996; background:rgba(244,244,244,0.15)" aria-hidden="true"></div>
+    <div class="cursor-trail" style="width:11.5px; height:11.5px; z-index:9995; background:rgba(244,244,244,0.125)" aria-hidden="true"></div>
+    <div class="cursor-trail" style="width:9px; height:9px; z-index:9994; background:rgba(244,244,244,0.1)" aria-hidden="true"></div>
+    <div class="cursor-trail" style="width:6.5px; height:6.5px; z-index:9993; background:rgba(244,244,244,0.075)" aria-hidden="true"></div>
+    <div class="cursor-trail" style="width:4px; height:4px; z-index:9992; background:rgba(244,244,244,0.05)" aria-hidden="true"></div>
+    <div class="cursor-main" aria-hidden="true">
+      <span class="cursor-label"></span>
+    </div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+
+    
+
+    <!-- =============================================
+         BLOG PILL (fixed CTA)
+         ============================================= -->
+    <a href="blog.html" class="blog-pill" rel="noopener noreferrer">
+      <span>Blog</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+
+    <!-- =============================================
+         SITE HEADER / NAV
+         ============================================= -->
     <header>
-        <a href="index.html" class="sitae-name">Santiago Caro</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <div data-magnetic="0.3" class="magnetic-btn">
+          <a href="index.html" class="magnetic-inner nav-brand">Santiago Caro</a>
+        </div>
+      </nav>
     </header>
 
-    <aside class="sidebar">
-        <a href="#" class="sidebar-logo">W.</a>
-        <span class="sidebar-honors">Honors</span>
-    </aside>
+    <!-- =============================================
+         MAIN CONTENT
+         ============================================= -->
+    <main class="bg-main">
 
-    <main>
-        <a href="blog.html" class="blog-btn">BLOG <span class="blog-arrow">></span></a>
+      <!-- HERO -->
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div id="awwwards" class="awwwards-wrap">
+          <a
+            href="https://www.awwwards.com/sites/ewan-kerboas-portfolio"
+            class="awwwards-badge"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Awwwards — voir le portfolio de Ewan Kerboas"
+          >
+            <img
+              src="icons/awwwards.svg"
+              alt="Badge Awwwards"
+              width="53"
+              height="171"
+              class="awwwards-img"
+              loading="lazy"
+            />
+          </a>
+        </div>
 
-        <section class="hero">
-            <div class="hero-title">
-                <h1>FULL-STACK<br><span class="hero-indent">DEVELOPER</span></h1>
-            </div>
+        <div class="hero-center">
+          <div class="tilt-wrap">
+            <h1 id="hero-heading" class="text-heading">
+              <!-- Each letter is individually animated by GSAP -->
+              <span aria-hidden="true">
+                <span class="heading-char">F</span><span class="heading-char">u</span><span class="heading-char">l</span><span class="heading-char">l</span><span class="heading-char">-</span><span class="heading-char">S</span><span class="heading-char">t</span><span class="heading-char">a</span><span class="heading-char">c</span><span class="heading-char">k</span>
+              </span>
+              <br />
+              <span class="developer-indent" aria-hidden="true">
+                <span class="heading-char">d</span><span class="heading-char">e</span><span class="heading-char">v</span><span class="heading-char">e</span><span class="heading-char">l</span><span class="heading-char">o</span><span class="heading-char">p</span><span class="heading-char">e</span><span class="heading-char">r</span>
+              </span>
+              <!-- Screen reader-only text for accessibility -->
+              <span class="sr-only">Full-Stack developer</span>
+            </h1>
+          </div>
+        </div>
 
-            <div class="scroll-indicator">
-                <svg viewBox="0 0 100 100" width="120" height="120">
-                    <defs>
-                        <path id="circle-path" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
-                    </defs>
-                    <text font-size="11.5" fill="white" letter-spacing="3.5">
-                        <textPath href="#circle-path">SCROLL DOWN  SCROLL DOWN </textPath>
-                    </text>
-                </svg>
-                <img src="img/asterisk.svg" alt="" class="spin-img">
+        <div class="hero-bottom">
+          <!-- Scroll indicator -->
+          <div class="scroll-ring-wrap" aria-label="Défiler vers le bas">
+            <svg class="scroll-ring" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <path
+                  id="circleTextPath"
+                  d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                />
+              </defs>
+              <text>
+                <textPath href="#circleTextPath" startOffset="0%">
+                  SCROLL DOWN SCROLL DOWN
+                </textPath>
+              </text>
+            </svg>
+            <div class="scroll-ring-center">
+              <img src="icons/asterisk.svg" width="16" height="16" alt="" loading="lazy" />
             </div>
+          </div>
 
-            <div class="open-to-work">
-                <span class="otw-text">OPEN TO WORK</span>
-                <img src="img/asterisk.svg" alt="" class="spin-img2">
-                <p class="otw-location">Based in France</p>
+          <!-- Availability badge -->
+          <div class="open-work-wrap">
+            <div class="open-work-row down">
+              <div class="open-work-glow" aria-hidden="true"></div>
+              <h3>Open to work</h3>
+              <div class="relative-spin" aria-hidden="true">
+                <img src="icons/asterisk.svg" width="28" height="28" alt="" class="spin-ast" loading="lazy" />
+              </div>
             </div>
-        </section>
+            <p class="based-in down">Based in France</p>
+          </div>
+        </div>
+      </section>
 
-        <!-- PANELS -->
-        <section class="panels">
+      <!-- SKILLS -->
+      <section class="skills-section" aria-labelledby="skills-heading">
+        <!-- Hidden h2 for screen readers -->
+        <h2 id="skills-heading" class="sr-only">Technologies &amp; compétences</h2>
 
-            <div class="panel-title">
-                <h2>FULL-STACK</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    ‟ Building bridges between frontend magic and backend logic. "
-                </blockquote>
-            </div>
-            <div class="panel-title">
-                <h2>FRONTEND<br>ADDICT</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " Addiction is anything that drains life of meaning while making it seem better. "
-                </blockquote>
-            </div>
+        <div class="citation-col" aria-hidden="true">
+          <div class="citation-fixed">
+            <p class="citation" id="skill-citation"></p>
+          </div>
+        </div>
 
-            <div class="panel-title">
-                <h2>PIXEL<br>PERFECT</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " Perfection is achieved not when there is nothing left to add, but when there is nothing left to take away. "
-                </blockquote>
-            </div>
+        <div class="skills-text text">
+          <p id="1" class="about first-p">FULL-STACK</p>
+          <p id="2" class="about">NEXT.JS / REACT</p>
+          <p id="3" class="about">NODE.JS / EXPRESS</p>
+          <p id="4" class="about">DATABASES</p>
+          <p id="5" class="about">API DESIGN</p>
+          <p id="6" class="about">DEVOPS</p>
+          <p id="7" class="about">GSAP / THREE.JS</p>
+          <p id="8" class="about">SEO / PERFORMANCE</p>
+        </div>
+      </section>
 
-            <div class="panel-title">
-                <h2>RESPONSIVE</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " What makes man is his great adaptability. "
-                </blockquote>
-            </div>
+      <!-- Portfolio anchor used by ScrollTrigger -->
+      <div id="portfolio-section" aria-hidden="true"></div>
 
-            <div class="panel-title">
-                <h2>GSAP</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " An artist doesn't bend to reality, he invents it. "
-                </blockquote>
-            </div>
+      <!-- SELECTED WORKS -->
+      <section class="projects-split selected-projects" aria-labelledby="works-heading">
+        <div class="projects-grid">
 
-            <div class="panel-title">
-                <h2>CREATIVE<br>CODER</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " Creativity without strategy is called art. "
-                </blockquote>
-            </div>
+          <!-- Sticky sidebar: list of projects -->
+          <div class="split-sticky">
+            <header class="split-title selected-projects-asterisk">
+              <img src="icons/asterisk.svg" alt="" width="24" height="24" loading="lazy" aria-hidden="true" />
+              <h2 id="works-heading">Selected works</h2>
+            </header>
 
-            <div class="panel-title">
-                <h2>I LOVE<br>DISCOVERING<br>NEW<br>CREATIVE<br>WORLDS</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " It's the artist's role to worry about where the world is going. "
-                </blockquote>
-            </div>
-
-            <div class="panel-title">
-                <h2>ACCESSIBLE</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " Practice makes perfect. "
-                </blockquote>
-            </div>
-
-            <div class="panel-title">
-                <h2>SEO</h2>
-            </div>
-            <div class="panel-quote">
-                <blockquote>
-                    " The best place to hide a dead body is page 2 of Google search results "
-                </blockquote>
-            </div>
-
-        </section>
-
-        <section class="selected-works">
-            <div class="works-header">
-                <span class="works-star">✳</span>
-                <span class="works-label">SELECTED WORKS</span>
+            <div class="project-counter" aria-live="polite" aria-atomic="true">
+              <span class="project-number">01</span>
+              <span class="sep" aria-hidden="true">/</span>
+              <span class="total">05</span>
             </div>
 
-            <ul class="works-list">
-                <li class="work-item">
-                    <hr>
-                    <a href="#">ENNEA</a>
-                </li>
-                <li class="work-item">
-                    <hr>
-                    <a href="#">KIA EV9</a>
-                </li>
-                <li class="work-item">
-                    <hr>
-                    <a href="#">CASINO</a>
-                </li>
-                <li class="work-item">
-                    <hr>
-                    <a href="#">NFT FEST</a>
-                </li>
-                <hr>
-            </ul>
-        </section>
+            <nav class="split-list" aria-label="Liste des projets">
+              <a
+                href="https://ewan-kerboas.fr/orion"
+                class="split-project-item project-item is-active"
+                data-index="0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="row-top">
+                  <span class="year">2025</span>
+                  <span class="pulse-dot" style="background-color:#10b981" aria-hidden="true"></span>
+                </div>
+                <h3>ORION</h3>
+                <p class="sub">AI-Powered Growth</p>
+                <div class="tag-row" aria-hidden="true">
+                  <span class="tag">SaaS Platform</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
 
-    </main>
+              <a
+                href="https://ewan-kerboas.fr/ennea"
+                class="split-project-item project-item"
+                data-index="1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="row-top">
+                  <span class="year">2024</span>
+                  <span class="pulse-dot" style="background-color:#4158ac" hidden aria-hidden="true"></span>
+                </div>
+                <h3>ENNEA</h3>
+                <p class="sub">Your Web3 Journey</p>
+                <div class="tag-row" aria-hidden="true">
+                  <span class="tag">Web3 Landing</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
 
-    <footer>
-    <a href="mailto:contact@santiagocaro.dev" class="cta-button">GET IN TOUCH</a>
+              <a
+                href="https://ewan-kerboas.fr/kia-ev9"
+                class="split-project-item project-item"
+                data-index="2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="row-top">
+                  <span class="year">2024</span>
+                  <span class="pulse-dot" style="background-color:#6a8cef" hidden aria-hidden="true"></span>
+                </div>
+                <h3>KIA EV9</h3>
+                <p class="sub">Experience Innovation</p>
+                <div class="tag-row" aria-hidden="true">
+                  <span class="tag">3D NFT Experience</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
 
-    <nav class="social-links" aria-label="Social links">
-        <a href="blog.html">Blog <span>↗</span></a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener">Linkedin <span>↗</span></a>
-        <a href="https://malt.fr" target="_blank" rel="noopener">Malt <span>↗</span></a>
-        <a href="https://github.com" target="_blank" rel="noopener">Github <span>↗</span></a>
-    </nav>
-</footer>
+              <a
+                href="https://ewan-kerboas.fr/casino"
+                class="split-project-item project-item"
+                data-index="3"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="row-top">
+                  <span class="year">2023</span>
+                  <span class="pulse-dot" style="background-color:#8b5cf6" hidden aria-hidden="true"></span>
+                </div>
+                <h3>CASINO</h3>
+                <p class="sub">Play &amp; Earn</p>
+                <div class="tag-row" aria-hidden="true">
+                  <span class="tag">Crypto Platform</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
 
-</body>
+              <a
+                href="https://ewan-kerboas.fr/nft-fest"
+                class="split-project-item project-item"
+                data-index="4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div class="row-top">
+                  <span class="year">2023</span>
+                  <span class="pulse-dot" style="background-color:#ec4899" hidden aria-hidden="true"></span>
+                </div>
+                <h3>NFT FEST</h3>
+                <p class="sub">Digital Art Festival</p>
+                <div class="tag-row" aria-hidden="true">
+                  <span class="tag">Festival Platform</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </a>
+            </nav>
+          </div><!-- /.split-sticky -->
+
+          <!-- Preview cards -->
+          <div class="split-preview">
+
+            <article class="project-preview-item project-item" data-preview="0">
+              <a
+                href="https://ewan-kerboas.fr/orion"
+                class="project-card-visual"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet ORION — SaaS Platform 2025"
+              >
+                <div class="bg" style="background-image:url(images/orion-1.webp)"></div>
+                <div class="grad" aria-hidden="true"></div>
+                <div class="orb" style="background-color:#10b981" aria-hidden="true"></div>
+                <span class="big-num" aria-hidden="true">01</span>
+                <div class="project-card-body">
+                  <p>SaaS growth copilot automating sales, marketing &amp; data management with AI-powered lead scoring.</p>
+                  <div class="project-meta" aria-label="SaaS Platform, 2025">
+                    <span>SaaS Platform</span><span class="dot" aria-hidden="true">•</span><span>2025</span>
+                  </div>
+                  <span class="view-project">
+                    <span>View Project</span>
+                    <span class="icon-circle" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-preview-item project-item" data-preview="1">
+              <a
+                href="https://ewan-kerboas.fr/ennea"
+                class="project-card-visual block"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet ENNEA — Web3 Landing 2024"
+              >
+                <div class="bg" style="background-image:url(images/ennea.webp)"></div>
+                <div class="grad" aria-hidden="true"></div>
+                <div class="orb" style="background-color:#4158ac" aria-hidden="true"></div>
+                <span class="big-num" aria-hidden="true">02</span>
+                <div class="project-card-body">
+                  <p>Immersive Web3 experience with blockchain integration and NFT marketplace.</p>
+                  <div class="project-meta" aria-label="Web3 Landing, 2024">
+                    <span>Web3 Landing</span><span class="dot" aria-hidden="true">•</span><span>2024</span>
+                  </div>
+                  <span class="view-project">
+                    <span>View Project</span>
+                    <span class="icon-circle" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-preview-item project-item" data-preview="2">
+              <a
+                href="https://ewan-kerboas.fr/kia-ev9"
+                class="project-card-visual block"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet KIA EV9 — 3D NFT Experience 2024"
+              >
+                <div class="bg" style="background-image:url(images/kiaev9.webp)"></div>
+                <div class="grad" aria-hidden="true"></div>
+                <div class="orb" style="background-color:#6a8cef" aria-hidden="true"></div>
+                <span class="big-num" aria-hidden="true">03</span>
+                <div class="project-card-body">
+                  <p>Interactive 3D showcase for the KIA EV9 with NFT collection integration.</p>
+                  <div class="project-meta" aria-label="3D NFT Experience, 2024">
+                    <span>3D NFT Experience</span><span class="dot" aria-hidden="true">•</span><span>2024</span>
+                  </div>
+                  <span class="view-project">
+                    <span>View Project</span>
+                    <span class="icon-circle" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-preview-item project-item" data-preview="3">
+              <a
+                href="https://ewan-kerboas.fr/casino"
+                class="project-card-visual block"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet CASINO — Crypto Platform 2023"
+              >
+                <div class="bg" style="background-image:url(images/casino.webp)"></div>
+                <div class="grad" aria-hidden="true"></div>
+                <div class="orb" style="background-color:#8b5cf6" aria-hidden="true"></div>
+                <span class="big-num" aria-hidden="true">04</span>
+                <div class="project-card-body">
+                  <p>Decentralized casino platform with provably fair games and crypto payments.</p>
+                  <div class="project-meta" aria-label="Crypto Platform, 2023">
+                    <span>Crypto Platform</span><span class="dot" aria-hidden="true">•</span><span>2023</span>
+                  </div>
+                  <span class="view-project">
+                    <span>View Project</span>
+                    <span class="icon-circle" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-preview-item project-item" data-preview="4">
+              <a
+                href="https://ewan-kerboas.fr/nft-fest"
+                class="project-card-visual block"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Voir le projet NFT FEST — Festival Platform 2023"
+              >
+                <div class="bg" style="background-image:url(images/nftfest.webp)"></div>
+                <div class="grad" aria-hidden="true"></div>
+                <div class="orb" style="background-color:#ec4899" aria-hidden="true"></div>
+                <span class="big-num" aria-hidden="true">05</span>
+                <div class="project-card-body">
+                  <p>NFT festival booking platform connecting artists and collectors worldwide.</p>
+                  <div class="project-meta" aria-label="Festival Platform, 2023">
+                    <span>Festival Platform</span><span class="dot" aria-hidden="true">•</span><span>2023</span>
+                  </div>
+                  <span class="view-project">
+                    <span>View Project</span>
+                    <span class="icon-circle" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </a>
+            </article>
+
+          </div><!-- /.split-preview -->
+        </div><!-- /.projects-grid -->
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer-section">
+        <div data-magnetic="0.4" class="magnetic-btn get-in-touch">
+          <a
+            class="magnetic-inner"
+            href="/cdn-cgi/l/email-protection#096a66677d686a7d496c7e686724626c7b6b66687a276f7b"
+          >
+            Get in touch
+          </a>
+        </div>
+
+        <nav class="footer-links" aria-label="Réseaux sociaux">
+          <div data-magnetic="0.3" class="magnetic-btn footer-magnetic">
+            <a
+              href="https://ewan-kerboas.fr/blog"
+              class="magnetic-inner link-underline social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Blog
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M18.3646 5.63623H11.2939M18.3646 5.63623L18.3643 12.7073M18.3646 5.63623L5.63672 18.3642" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div data-magnetic="0.3" class="magnetic-btn footer-magnetic">
+            <a
+              href="https://www.linkedin.com/in/ewan-kerboas"
+              class="magnetic-inner link-underline social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M18.3646 5.63623H11.2939M18.3646 5.63623L18.3643 12.7073M18.3646 5.63623L5.63672 18.3642" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div data-magnetic="0.3" class="magnetic-btn footer-magnetic">
+            <a
+              href="https://www.malt.fr/profile/ewankerboas"
+              class="magnetic-inner link-underline social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Malt
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M18.3646 5.63623H11.2939M18.3646 5.63623L18.3643 12.7073M18.3646 5.63623L5.63672 18.3642" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div data-magnetic="0.3" class="magnetic-btn footer-magnetic">
+            <a
+              href="https://github.com/ewan-kerboas"
+              class="magnetic-inner link-underline social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M18.3646 5.63623H11.2939M18.3646 5.63623L18.3643 12.7073M18.3646 5.63623L5.63672 18.3642" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </nav>
+      </footer>
+
+    </main><!-- /#bg-main -->
+
+    <!-- =============================================
+         THIRD-PARTY SCRIPTS (deferred, end of body)
+         ============================================= -->
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+      defer
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/three@0.163.0/build/three.min.js" defer></script>
+
+    <!-- App script — loaded last so all globals above are available -->
+    <script src="script.js" defer></script>
+
+  </body>
 </html>
